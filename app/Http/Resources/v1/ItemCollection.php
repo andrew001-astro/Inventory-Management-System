@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\v1;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Support\Facades\URL;
 
 class ItemCollection extends ResourceCollection
 {
@@ -13,13 +12,11 @@ class ItemCollection extends ResourceCollection
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request)
-    {
-        return [
-            'data' => $this->collection,
-            'links' => [
-                'self' => URL::to('/'),
-            ],
-        ];
-    }
+
+    // public function toArray($request)
+    // {
+    //     return parent::toArray($request);
+    // }
+
+    public $collects = 'App\Http\Resources\v1\ItemResource';
 }

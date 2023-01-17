@@ -18,4 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/items', 'API\ItemController');
+// api/v1
+Route::group(['prefix'=>'v1', 'namespace'=>'API\v1'], function(){
+    Route::apiResource('/items', 'ItemController');
+});
