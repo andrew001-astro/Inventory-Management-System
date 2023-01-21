@@ -1,5 +1,4 @@
 # users table
-
 |Name|Type|Attributes|
 |---|---|---|
 |`id`|int|AI|
@@ -11,8 +10,8 @@
 |`email`|String|not null,unique|
 
 
-# items table
 
+# items table
 |Name|Type|Attributes|
 |---|---|---|
 |`id`|int|AI|
@@ -20,8 +19,9 @@
 |`name`|String|not null|
 |`price`|double|null|
 
-# invoices table
 
+
+# invoices table
 |Name|Type|Attributes|
 |---|---|---|
 |`id`|int|AI|
@@ -40,7 +40,6 @@
 
 
 # items_invoices table
-
 |Name|Type|Attributes|
 |---|---|---|
 |`id`|int|AI|

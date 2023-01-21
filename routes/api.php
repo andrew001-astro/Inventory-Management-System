@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // api/v1
 Route::group(['prefix'=>'v1', 'namespace'=>'API\v1'], function(){
-    Route::apiResource('/items', 'ItemController');
+    Route::apiResources([
+        'items' => 'ItemController',
+        'invoices' => 'InvoiceController',
+        'invoice-items' => 'InvoiceItemsController',
+    ]);
 });

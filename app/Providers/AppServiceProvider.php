@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Services\v1\ItemService', 'App\Services\v1\impl\ItemServiceImpl');
+        $this->app->bind('App\Services\v1\InvoiceService', 'App\Services\v1\impl\InvoiceServiceImpl');
+        $this->app->bind('App\Services\v1\InvoiceItemsService', 'App\Services\v1\impl\InvoiceItemsServiceImpl');
     }
 
     /**

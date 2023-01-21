@@ -4,17 +4,16 @@ namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\v1\ItemService;
-use App\Http\Requests\ItemRequest;
+use App\Services\v1\InvoiceService;
+use App\Http\Requests\InvoiceRequest;
 
-class ItemController extends Controller
+class InvoiceController extends Controller
 {
 
-    private ItemService $itemService;
-
-    public function __construct(ItemService $itemService)
+    private InvoiceService $invoiceService;
+    public function __construct(InvoiceService $invoiceService)
     {
-        $this->itemService = $itemService;
+        $this->invoiceService = $invoiceService;
     } 
 
     /**
@@ -24,18 +23,18 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return $this->itemService->getAll();
+        return $this->invoiceService->getAll();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-    * @param  \App\Http\Requests\ItemRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ItemRequest $request)
+    public function store(InvoiceRequest $request)
     {
-        return $this->itemService->create($request);
+        return $this->invoiceService->create($request);
     }
 
     /**
@@ -46,7 +45,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        return $this->itemService->getById($id);
+        return $this->invoiceService->getById($id);
     }
 
     /**
@@ -56,9 +55,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ItemRequest $request, $id)
+    public function update(InvoiceRequest $request, $id)
     {
-        return $this->itemService->update($request, $id);
+        return $this->invoiceService->update($request, $id);
     }
 
     /**
@@ -69,6 +68,7 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        return $this->itemService->delete($id);
+        return $this->invoiceService->delete($id);
     }
 }
+

@@ -4,19 +4,17 @@ namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\v1\ItemService;
-use App\Http\Requests\ItemRequest;
+use App\Http\Requests\ItemInvoiceRequest;
+use App\Services\v1\InvoiceItemsService;
 
-class ItemController extends Controller
+class InvoiceItemsController extends Controller
 {
 
-    private ItemService $itemService;
-
-    public function __construct(ItemService $itemService)
+    private InvoiceItemsService $invoiceItemsService;
+    public function __construct(InvoiceItemsService $invoiceItemsService)
     {
-        $this->itemService = $itemService;
+        $this->invoiceItemsService = $invoiceItemsService;
     } 
-
     /**
      * Display a listing of the resource.
      *
@@ -24,18 +22,18 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return $this->itemService->getAll();
+        return $this->invoiceItemsService->getAll();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-    * @param  \App\Http\Requests\ItemRequest  $request
+     * @param  \App\Http\Requests\ItemInvoiceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ItemRequest $request)
+    public function store(ItemInvoiceRequest $request)
     {
-        return $this->itemService->create($request);
+        return $this->invoiceItemsService->create($request);
     }
 
     /**
@@ -46,19 +44,19 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        return $this->itemService->getById($id);
+        return $this->invoiceItemsService->getById($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ItemInvoiceRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ItemRequest $request, $id)
+    public function update(ItemInvoiceRequest $request, $id)
     {
-        return $this->itemService->update($request, $id);
+        return $this->invoiceItemsService->update($request, $id);
     }
 
     /**
@@ -69,6 +67,6 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        return $this->itemService->delete($id);
+        return $this->invoiceItemsService->delete($id);
     }
 }
