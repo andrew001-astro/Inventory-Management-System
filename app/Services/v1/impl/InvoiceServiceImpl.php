@@ -10,6 +10,7 @@ use App\Services\v1\InvoiceService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 use App\Helpers\CommonHelper;
+use Illuminate\Support\Str;
 
 class InvoiceServiceImpl implements InvoiceService
 {
@@ -24,11 +25,13 @@ class InvoiceServiceImpl implements InvoiceService
     public function create(Request $request)
     {
         try {
+            $refNo = Str::orderedUuid();
+            $request->merge(["referenceNo" => $refNo]);
             $id = $this->InvoiceRepository->create(
                 CommonHelper::sanitizeRequest($request)
             );
 
-            return CommonHelper::created(['id' => $id]);
+            return CommonHelper::created(['id' => $id, 'referenceNo' => $refNo]);
         } catch (Exception $e) {
             return CommonHelper::internalServerError($e->getMessage());
         }

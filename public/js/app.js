@@ -6260,7 +6260,7 @@ module.exports = {
   Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
-//# sourceMappingURL=bootstrap.js.map
+sourceMappingURL=bootstrap.js.map
 
 
 /***/ }),
@@ -37107,7 +37107,7 @@ Popper.placements = placements;
 Popper.Defaults = Defaults;
 
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
-//# sourceMappingURL=popper.js.map
+sourceMappingURL=popper.js.map
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 

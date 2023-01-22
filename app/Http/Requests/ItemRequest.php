@@ -18,7 +18,7 @@ class ItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'no' => 'required|unique:App\Models\Item,no',
+            'no' => 'required',
             'name' => 'required',
             'price' => 'nullable'
         ];

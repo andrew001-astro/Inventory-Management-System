@@ -10,6 +10,7 @@ use App\Services\v1\ItemService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 use App\Helpers\CommonHelper;
+use Illuminate\Support\Facades\Log;
 
 class ItemServiceImpl implements ItemService
 {
@@ -71,6 +72,25 @@ class ItemServiceImpl implements ItemService
             return CommonHelper::success(['deleted' => $this->itemRepository->delete($id)]);
         } catch (ModelNotFoundException $e) {
             return CommonHelper::notFound($e->getMessage());
+        } catch (Exception $e) {
+            return CommonHelper::internalServerError($e->getMessage());
+        }
+    }
+
+    public function createBatch($request)
+    {
+        try {
+            $savedInvoiceItems = [];
+            foreach ($request as $key => $value) {
+                $itemRequest = new Request();
+                $itemRequest->replace($value);
+                $id = $this->itemRepository->create(
+                    CommonHelper::sanitizeRequest($itemRequest)
+                );
+                $value['itemId'] = $id;
+                array_push($savedInvoiceItems,$value);
+            }
+            return CommonHelper::created(['data' => $savedInvoiceItems]);
         } catch (Exception $e) {
             return CommonHelper::internalServerError($e->getMessage());
         }

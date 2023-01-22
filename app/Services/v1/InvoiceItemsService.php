@@ -14,4 +14,8 @@ interface InvoiceItemsService
     public function update(Request $request, $id);
 
     public function delete($id);
+
+    public function createBatch($items, $invoiceId);
+
+    public function getInvoiceItems($id);
 }

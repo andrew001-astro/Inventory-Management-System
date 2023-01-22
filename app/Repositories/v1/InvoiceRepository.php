@@ -3,6 +3,7 @@
 namespace App\Repositories\v1;
 
 use App\Models\Invoice;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceRepository
 {
@@ -42,6 +43,8 @@ class InvoiceRepository
     {
         return $this->invoice->paginate(10);
     }
+
+  
 
     private function fillModel($request){
         foreach ($request as $key => $value) {

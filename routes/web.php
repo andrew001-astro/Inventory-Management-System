@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Invoice
+Route::resource('/invoice', 'Web\v1\InvoiceController')->middleware("auth");

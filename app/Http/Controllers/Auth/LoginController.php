@@ -20,9 +20,11 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers{
-        logout as customLogout;
-    }
+    use AuthenticatesUsers;
+    // use AuthenticatesUsers
+    // {
+    //     logout as customLogout;
+    // }
 
     /**
      * Where to redirect users after login.
@@ -41,10 +43,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function logout(Request $request)
-    {
-        $this->customLogout($request);
+    // public function logout(Request $request)
+    // {
+    //     $this->customLogout($request);
 
-        return redirect('/login');
-    }
+    //     return redirect('/login');
+    // }
 }
