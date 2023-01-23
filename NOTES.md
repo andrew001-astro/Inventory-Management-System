@@ -24,7 +24,7 @@ $ php artisan route:cache
 
 - run to serve the project
 $ PORT=9001
-$ sudo php artisan serve --host 192.168.56.101 --port ${PORT}
+$ php artisan serve --port ${PORT}
 
 - access via browser
 localhost:9001

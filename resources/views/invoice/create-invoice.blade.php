@@ -301,7 +301,7 @@
                         alert("Something went wrong. \n" + this.responseText);
                     }
                 };
-                xhttp.open("POST", "http://vmphpdv01:9001/invoice", true);
+                xhttp.open("POST", "{{url('/')}}/invoice", true);
                 xhttp.setRequestHeader("Content-type", "application/json");
                 xhttp.setRequestHeader("X-CSRF-TOKEN", document.getElementById('csrfToken').value);
                 xhttp.send(jsonString);
