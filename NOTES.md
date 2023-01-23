@@ -1,8 +1,8 @@
 ## NEED TO INSTALL
-- node.js v16.15.1 or higher
-- npm 9.3.1 or higher
-- XAMPP v7.4.33 or higher
-- Composer version 2.5.1 or higher
+- node.js v16.15.1
+- npm 9.3.1
+- XAMPP v7.4.33
+- Composer version 2.5.1
 - Git Bash CLI
 
 
@@ -11,7 +11,7 @@
 - create a database in phpmyadmin named `ims_db`
 
 - clone project
-$ git clone git@github.com:andrew001-astro/Inventory-Management-System.git inventory-management-system
+$ git clone https://github.com/andrew001-astro/Inventory-Management-System.git
 
 - go to project dir
 $ cd inventory-management-system
